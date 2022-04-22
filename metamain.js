@@ -41,3 +41,45 @@ const armorNFTsContractThree = await Moralis.Web3API.account.getNFTsForContract(
 
 const contractFour = { chain: "eth", address: user.get('ethAddress'), token_address: "0x73C7F078DBc1D961DF33aDa0EF9caC89c7887801" }; //WENOLIN OF SOMANE SWORD CONTRACT
 const armorNFTsContractFour = await Moralis.Web3API.account.getNFTsForContract(contractFour);
+//Returns an Object with an Array of Owned NFTs
+
+
+//Gets & Stores the rarity of the all Owned NFTs
+var rarityOwnedContractOne = [];
+var rarityOwnedContractTwo = [];
+var rarityOwnedContractThree = [];
+var rarityOwnedContractFour = [];
+//String Arrays rarities of all Contracts
+
+//Grabing Values from returned objects & storing them in rarity arrays
+for (var i = 0; i < armorNFTsContractOne.result.length; i++) {
+    rarityOwnedContractOne[i] = armorNFTsContractOne.result[i].metadata.attributes[2].value;
+}
+
+for (var i = 0; i < armorNFTsContractTwo.result.length; i++) {
+    rarityOwnedContractTwo[i] = armorNFTsContractOne.result[i].metadata.attributes[2].value;
+}
+
+for (var i = 0; i < armorNFTsContractThree.result.length; i++) {
+    rarityOwnedContractThree[i] = armorNFTsContractOne.result[i].metadata.attributes[2].value;
+}
+
+for (var i = 0; i < armorNFTsContractFour.result.length; i++) {
+    rarityOwnedContractFour[i] = armorNFTsContractOne.result[i].metadata.attributes[2].value;
+}
+
+
+//Giving the User Download Links for their respective rarities (CONFIRM FIRST)
+for (var i = 0; i < rarityOwnedContractOne.length; i++) {
+    if (rarityOwnedContractOne[i] == "Standard") {
+        // what to do if condition is met
+    } else if (rarityOwnedContractOne[i] == "Special") {
+        // what to do if condition is not met
+    } else if (rarityOwnedContractOne[i] == "Rare") {
+        // what to do if condition is not met
+    } else if (rarityOwnedContractOne[i] == "Ultrarare") {
+        // what to do if condition is not met
+    } else {
+        // what to do if condition is not met
+    }
+}
