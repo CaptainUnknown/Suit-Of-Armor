@@ -68,52 +68,104 @@ for (var i = 0; i < armorNFTsContractFour.result.length; i++) {
     rarityOwnedContractFour[i] = armorNFTsContractOne.result[i].metadata.attributes[2].value;
 }
 
+var standardOne = false;
+var specialOne = false;
+var rareOne = false;
+var legendaryOne = false;
+
+var standardTwo = false;
+var specialTwo = false;
+var rareTwo = false;
+var legendaryTwo = false;
+
+var standardThree = false;
+var specialThree = false;
+var rareThree = false;
+var legendaryThree = false;
+
+var standardFour = false;
+var specialFour = false;
+var rareFour = false;
+var legendaryFour = false;
 
 //Giving the User Download Links for their respective rarities (CONFIRM FIRST)
 for (var i = 0; i < rarityOwnedContractOne.length; i++) {
     if (rarityOwnedContractOne[i] == "Standard") {
+        standardOne = true;
         // https://drive.google.com/drive/folders/1_Jvj9c-tFsXgDbYu9Ne-35buE1-VPb63?usp=sharing
-    } else if (rarityOwnedContractOne[i] == "Special") {
+    }
+    if (rarityOwnedContractOne[i] == "Special") {
+        specialOne = true;
         // https://drive.google.com/drive/folders/1vXOyL445IKlypbyi7l9GqtSZleZM2DGJ?usp=sharing
-    } else if (rarityOwnedContractOne[i] == "Rare") {
+    }
+    if (rarityOwnedContractOne[i] == "Rare") {
+        rareOne = true;
         // https://drive.google.com/drive/folders/1YpCoqDZcT-rYfUM5boVafPaqUUaHXfWF?usp=sharing
-    } else if (rarityOwnedContractOne[i] == "Legendary") {
+    }
+    if (rarityOwnedContractOne[i] == "Legendary") {
+        legendaryOne = true;
         // https://drive.google.com/drive/folders/1UhC1H0VrYR_d3zdppXUnU1ZXM6YPDhVv?usp=sharing
     }
 }
 
 for (var i = 0; i < rarityOwnedContractTwo.length; i++) {
     if (rarityOwnedContractTwo[i] == "Standard") {
+        standardTwo = true;
         // https://drive.google.com/drive/folders/1oMsQRJ57382IiBfbXE358fESWWJx-S0-?usp=sharing
-    } else if (rarityOwnedContractTwo[i] == "Special") {
+    }
+    if (rarityOwnedContractTwo[i] == "Special") {
+        specialTwo = true;
         // https://drive.google.com/drive/folders/1FvKuGgcjUNEusGmjJUslmvDgq84l6wsx?usp=sharing
-    } else if (rarityOwnedContractTwo[i] == "Rare") {
+    }
+    if (rarityOwnedContractTwo[i] == "Rare") {
+        rareTwo = true;
         // https://drive.google.com/drive/folders/1_nz9fdclSuS5tQdOhYx4w1Qv7Jm4w8qM?usp=sharing
-    } else if (rarityOwnedContractTwo[i] == "Legendary") {
+    }
+    if (rarityOwnedContractTwo[i] == "Legendary") {
+        legendaryTwo = true;
         // https://drive.google.com/drive/folders/1vVgsJjUO55Gs1AGGTrRVFa7gS3ZdN-Wv?usp=sharing
     }
 }
 
 for (var i = 0; i < rarityOwnedContractThree.length; i++) {
     if (rarityOwnedContractThree[i] == "Standard") {
+        standardThree = true;
         // https://drive.google.com/drive/folders/1Sckw2PmHvRaFUOgxcaGmyllteBmBw1bB?usp=sharing
-    } else if (rarityOwnedContractThree[i] == "Special") {
+    }
+    if (rarityOwnedContractThree[i] == "Special") {
+        specialThree = true;
         // https://drive.google.com/drive/folders/1EFn2cpQOLZKS4sAelDIppu9NrlkUr5JB?usp=sharing
-    } else if (rarityOwnedContractThree[i] == "Rare") {
+    }
+    if (rarityOwnedContractThree[i] == "Rare") {
+        rareThree = true;
         // https://drive.google.com/drive/folders/1iucwEJaESbSm7n9oQQnLLWj0_72O5Dkd?usp=sharing
-    } else if (rarityOwnedContractThree[i] == "Legendary") {
+    }
+    if (rarityOwnedContractThree[i] == "Legendary") {
+        legendaryThree = true;
         // https://drive.google.com/drive/folders/1jvQw-e5HO_VlcvpttSHlHQJMU5GtN7Ss?usp=sharing
     }
 }
 
 for (var i = 0; i < rarityOwnedContractFour.length; i++) {
     if (rarityOwnedContractFour[i] == "Standard") {
+        standardFour = true;
         // https://drive.google.com/drive/folders/1gHDHFg_j-pfoZd0kwCUYFVXHjNcq1g5c?usp=sharing
-    } else if (rarityOwnedContractFour[i] == "Special") {
+    }
+    if (rarityOwnedContractFour[i] == "Special") {
+        specialFour = true;
         // https://drive.google.com/drive/folders/1tUI-H7W0E0JvkASyW5wmtAWrDC-0HGp5?usp=sharing
-    } else if (rarityOwnedContractFour[i] == "Rare") {
+    }
+    if (rarityOwnedContractFour[i] == "Rare") {
+        rareFour = true;
         // https://drive.google.com/drive/folders/1lmnN-5eqY4LcG5ZVSX3fJ2bUZcT3m4a0?usp=sharing
-    } else if (rarityOwnedContractFour[i] == "Legendary") {
+    }
+    if (rarityOwnedContractFour[i] == "Legendary") {
+        legendaryFour = true;
         // https://drive.google.com/drive/folders/1h2pzBL7jvEJ6Nyx-UegiD3ON0YhaZZYr?usp=sharing
     }
 }
+
+$(true)(function() {
+    var r = $('<input type="button" value="download button"/>');
+    $("body").append("<button><a href='" + "https://example.com/" + "'>Download Source</a></button>");
+});
