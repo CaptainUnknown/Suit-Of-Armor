@@ -1,5 +1,5 @@
 // Initialization
-const serverUrl = "https://q4kxo8ml4b0b.usemoralis.com:2053/serverr"; //Change serverUrl
+const serverUrl = "https://q4kxo8ml4b0b.usemoralis.com:2053/server"; //Change serverUrl
 const appId = "ZyR5FjsvCuAGhvW4W6S4bCuWFdRV6XfhRZjWS9PZ"; //Change appId
 Moralis.start({ serverUrl, appId });
 
@@ -167,7 +167,6 @@ for (var i = 0; i < rarityOwnedContractFour.length; i++) {
 //}
 
 document.getElementById("btn-login").onclick = login;
-document.getElementById("btn-logout").onclick = logOut;
 document.getElementById("btn-download").onclick = solveContract;
 console.log(standardOne = true);
 console.log(armorNFTsContractOne);
