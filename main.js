@@ -1,5 +1,5 @@
-const serverUrl = "https://nfyhripgc6qd.usemoralis.com:2053/server";
-const appId = "slc88cWfe1h03N34F7jQ7M7I4nPS4zYxwUr76uBn";
+const serverUrl = "https://6vtxdhaw2qr6.usemoralis.com:2053/server";
+const appId = "HQsrv5Vqi2ouBkZ5UhgWZyjSi3U7xiowRY6eN7TM";
 Moralis.start({ serverUrl, appId });
 
 async function login() {
@@ -24,11 +24,18 @@ async function logOut() {
 }
 
 let currentUser = Moralis.User.current();
-console.log(currentUser.attributes.ethAddress);
+//console.log(currentUser.attributes.ethAddress);
 
 document.getElementById("btn-logout").onclick = logOut;
 document.getElementById("btn-login").onclick = login;
 
+//============REMOVE THIS IN FINAL VERSION======================
+document.getElementById("notestnft").style.visibility = 'hidden';
+document.getElementById("test1").style.visibility = 'hidden';
+document.getElementById("test2").style.visibility = 'hidden';
+document.getElementById("test3").style.visibility = 'hidden';
+document.getElementById("test4").style.visibility = 'hidden';
+//==============================================================
 
 //INITIALIZING ELEMENTS
 document.getElementById("meta1").style.visibility = 'hidden';
@@ -66,26 +73,37 @@ document.getElementById("nonft15").style.visibility = 'hidden';
 document.getElementById("nonft16").style.visibility = 'hidden';
 
 
-async function solveContract() {
+var armorNFTsContractOne;
+var armorNFTsContractTwo;
+var armorNFTsContractThree;
+var armorNFTsContractFour;
 
-    //Get the NFTs of the SC Owned by the User (PASS STRING ADDRESS IF DOESNT WORK):
-    var contractOne = { chain: "eth", address: currentUser.attributes.ethAddress, token_address: "0xA958fd55Be008BE82595939646d37B5Ca4Fe778D" }; //KERGOM OF OLREND MACE CONTRACT
-    var armorNFTsContractOne = await Moralis.Web3API.account.getNFTsForContract(contractOne);
+var currentUserAddress = currentUser.attributes.ethAddress;
+console.log(currentUserAddress);
 
-    var contractTwo = { chain: "eth", address: currentUser.attributes.ethAddress, token_address: "0x703895bc5c3538a0eFAE736308f76d7bEDf01AfD" }; //GAELINS SONG KOPHER BOW CONTRACT
-    var armorNFTsContractTwo = await Moralis.Web3API.account.getNFTsForContract(contractTwo);
+(async() => {
+    const contractOne = { address: currentUserAddress, token_address: "0xA958fd55Be008BE82595939646d37B5Ca4Fe778D" }; //KERGOM OF OLREND MACE CONTRACT 
+    armorNFTsContractOne = await Moralis.Web3API.account.getNFTsForContract(contractOne);
+})();
+(async() => {
+    const contractTwo = { address: currentUserAddress, token_address: "0x703895bc5c3538a0eFAE736308f76d7bEDf01AfD" }; //GAELINS SONG KOPHER BOW CONTRACT 
+    armorNFTsContractTwo = await Moralis.Web3API.account.getNFTsForContract(contractTwo);
+})();
+(async() => {
+    const contractThree = { address: currentUserAddress, token_address: "0xea6cca8A0A7A9054e7695f6773476E5FAd43805b" }; //TORDON  OF TRIBEORN CONTRACT 
+    armorNFTsContractThree = await Moralis.Web3API.account.getNFTsForContract(contractThree);
+})();
+(async() => {
+    const contractFour = { address: currentUserAddress, token_address: "0x73C7F078DBc1D961DF33aDa0EF9caC89c7887801" }; //WENOLIN OF SOMANE SWORD CONTRACT 
+    armorNFTsContractFour = await Moralis.Web3API.account.getNFTsForContract(contractFour);
+})();
 
-    var contractThree = { chain: "eth", address: currentUser.attributes.ethAddress, token_address: "0xea6cca8A0A7A9054e7695f6773476E5FAd43805b" }; //TORDON  OF TRIBEORN CONTRACT
-    var armorNFTsContractThree = await Moralis.Web3API.account.getNFTsForContract(contractThree);
+//const abe = async function solveContract() {
+//Get the NFTs of the SC Owned by the User (PASS STRING ADDRESS IF DOESNT WORK):
+//}
 
-    var contractFour = { chain: "eth", address: currentUser.attributes.ethAddress, token_address: "0x73C7F078DBc1D961DF33aDa0EF9caC89c7887801" }; //WENOLIN OF SOMANE SWORD CONTRACT
-    var armorNFTsContractFour = await Moralis.Web3API.account.getNFTsForContract(contractFour);
-}
+console.log(armorNFTsContractFour);
 
-//Returns an Object with an Array of Owned NFTs
-
-console.log(contractOne);
-console.log(armorNFTsContractOne)
 
 //Gets & Stores the rarity of the all Owned NFTs
 var rarityOwnedContractOne = [];
@@ -94,47 +112,99 @@ var rarityOwnedContractThree = [];
 var rarityOwnedContractFour = [];
 //String Arrays rarities of all Contracts
 
-console.log(rarityOwnedContractOne);
-
 //Grabing Values from returned objects & storing them in rarity arrays
-for (var i = 0; i < armorNFTsContractOne.result.length; i++) {
-    rarityOwnedContractOne[i] = armorNFTsContractOne.result[i].metadata.attributes[2].value;
+if (armorNFTsContractOne == 'undefined') {
+    for (var i = 0; i < armorNFTsContractOne.result.length; i++) {
+        rarityOwnedContractOne[i] = armorNFTsContractOne[i].metadata.attributes[0].value; //change 0 to 2
+    }
+}
+if (armorNFTsContractTwo == 'undefined') {
+    for (var i = 0; i < armorNFTsContractTwo.result.length; i++) {
+        rarityOwnedContractTwo[i] = armorNFTsContractTwo.result[i].metadata.attributes[0].value;
+    }
+}
+if (armorNFTsContractThree == 'undefined') {
+    for (var i = 0; i < armorNFTsContractThree.result.length; i++) {
+        rarityOwnedContractThree[i] = armorNFTsContractThree.result[i].metadata.attributes[0].value;
+    }
+}
+if (armorNFTsContractFour == 'undefined') {
+    for (var i = 0; i < armorNFTsContractFour.result.length; i++) {
+        rarityOwnedContractFour[i] = armorNFTsContractFour.result[i].metadata.attributes[0].value;
+    }
 }
 
-for (var i = 0; i < armorNFTsContractTwo.result.length; i++) {
-    rarityOwnedContractTwo[i] = armorNFTsContractOne.result[i].metadata.attributes[2].value;
+var standardOne = false;
+var specialOne = false;
+var rareOne = false;
+var legendaryOne = false;
+
+//========================================= REMOVE THIS IN FINAL VERSION =========================================================
+var MysteryOne = false;
+var MysteryTwo = false;
+var MysteryThree = false;
+var MysteryFour = false;
+for (var i = 0; i < rarityOwnedContractOne.length; i++) {
+    if (rarityOwnedContractOne[i] == "Mystery") {
+        MysteryOne = true;
+        // https://drive.google.com/drive/folders/1_Jvj9c-tFsXgDbYu9Ne-35buE1-VPb63?usp=sharing
+    }
+    if (rarityOwnedContractTwo[i] == "Mystery") {
+        MysteryTwo = true;
+        // https://drive.google.com/drive/folders/1_Jvj9c-tFsXgDbYu9Ne-35buE1-VPb63?usp=sharing
+    }
+    if (rarityOwnedContractThree[i] == "Mystery") {
+        MysteryThree = true;
+        // https://drive.google.com/drive/folders/1_Jvj9c-tFsXgDbYu9Ne-35buE1-VPb63?usp=sharing
+    }
+    if (rarityOwnedContractFour[i] == "Mystery") {
+        MysteryFour = true;
+        // https://drive.google.com/drive/folders/1_Jvj9c-tFsXgDbYu9Ne-35buE1-VPb63?usp=sharing
+    }
 }
+console.log(rarityOwnedContractOne);
+console.log(rarityOwnedContractOne.length);
 
-for (var i = 0; i < armorNFTsContractThree.result.length; i++) {
-    rarityOwnedContractThree[i] = armorNFTsContractOne.result[i].metadata.attributes[2].value;
+
+if (MysteryOne == true) {
+    document.getElementById("test1").style.visibility = 'visible';
 }
-
-for (var i = 0; i < armorNFTsContractFour.result.length; i++) {
-    rarityOwnedContractFour[i] = armorNFTsContractOne.result[i].metadata.attributes[2].value;
+if (MysteryTwo == true) {
+    document.getElementById("test2").style.display = 'visible';
 }
+if (MysteryThree == true) {
+    document.getElementById("test3").style.display = 'visible';
+}
+if (MysteryFour == true) {
+    document.getElementById("test4").style.display = 'visible';
+}
+if (MysteryOne == false && MysteryTwo == false && MysteryThree == false && MysteryFour == false) {
+    document.getElementById("notestnft").style.visibility = 'visible';
+}
+console.log(MysteryOne);
+console.log(MysteryTwo);
+console.log(MysteryThree);
+console.log(MysteryFour);
+//=================================================================================================================================
 
-console.log(armorNFTsContractOne.result.length);
-console.log(rarityOwnedContractOne)
 
-standardOne = false;
-specialOne = false;
-rareOne = false;
-legendaryOne = false;
 
-standardTwo = false;
-specialTwo = false;
-rareTwo = false;
-legendaryTwo = false;
 
-standardThree = false;
-specialThree = false;
-rareThree = false;
-legendaryThree = false;
+/*
+var standardTwo = false;
+var specialTwo = false;
+var rareTwo = false;
+var legendaryTwo = false;
 
-standardFour = false;
-specialFour = false;
-rareFour = false;
-legendaryFour = false;
+var standardThree = false;
+var specialThree = false;
+var rareThree = false;
+var legendaryThree = false;
+
+var standardFour = false;
+var specialFour = false;
+var rareFour = false;
+var legendaryFour = false;
 
 
 //Giving the User Download Links for their respective rarities (CONFIRM FIRST)
@@ -350,5 +420,4 @@ if (rareFour == false) {
 if (legendaryFour == false) {
     document.getElementById("nonft16").style.visibility = 'visible';
 }
-
-solveContract;
+*/
