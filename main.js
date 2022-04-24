@@ -1,3 +1,4 @@
+//==================AUTHENTICATION====================
 const serverUrl = "https://6vtxdhaw2qr6.usemoralis.com:2053/server";
 const appId = "HQsrv5Vqi2ouBkZ5UhgWZyjSi3U7xiowRY6eN7TM";
 Moralis.start({ serverUrl, appId });
@@ -22,12 +23,17 @@ async function logOut() {
     await Moralis.User.logOut();
     console.log("logged out");
 }
-
+//current eth address
 let currentUser = Moralis.User.current();
-//console.log(currentUser.attributes.ethAddress);
+var currentUserAddress = currentUser.attributes.ethAddress;
+console.log(currentUserAddress);
 
 document.getElementById("btn-logout").onclick = logOut;
 document.getElementById("btn-login").onclick = login;
+
+
+
+
 
 //============REMOVE THIS IN FINAL VERSION======================
 document.getElementById("notestnft").style.visibility = 'hidden';
@@ -37,7 +43,7 @@ document.getElementById("test3").style.visibility = 'hidden';
 document.getElementById("test4").style.visibility = 'hidden';
 //==============================================================
 
-//INITIALIZING ELEMENTS
+//==================INIT ELEMENTS===============================
 document.getElementById("meta1").style.visibility = 'hidden';
 document.getElementById("meta2").style.visibility = 'hidden';
 document.getElementById("meta3").style.visibility = 'hidden';
@@ -73,13 +79,81 @@ document.getElementById("nonft15").style.visibility = 'hidden';
 document.getElementById("nonft16").style.visibility = 'hidden';
 
 
+//============================MORALIS API REQUEST=================================
+const apiRequest1 = async() => {
+    await fetch('https://deep-index.moralis.io/api/v2/nft/0xA958fd55Be008BE82595939646d37B5Ca4Fe778D/sync?chain=eth', {
+            method: 'PUT',
+            headers: {
+                'accept': '*/*',
+                'X-API-Key': 'qpwwZXW45C6gUhtMs9aL47F5vWiDq10w62XxkCfMPI0nN3bxaCIsIkXjPbxnJ72q'
+            }
+        }).then((response) => {
+            console.log(response.status);
+            return response.status;
+        })
+        .then((data) => {
+            console.log(data);
+        })
+};
+const apiRequest2 = async() => {
+    await fetch('https://deep-index.moralis.io/api/v2/nft/0x703895bc5c3538a0eFAE736308f76d7bEDf01AfD/sync?chain=eth', {
+            method: 'PUT',
+            headers: {
+                'accept': '*/*',
+                'X-API-Key': 'qpwwZXW45C6gUhtMs9aL47F5vWiDq10w62XxkCfMPI0nN3bxaCIsIkXjPbxnJ72q'
+            }
+        }).then((response) => {
+            console.log(response.status);
+            return response.status;
+        })
+        .then((data) => {
+            console.log(data);
+        })
+};
+const apiRequest3 = async() => {
+    await fetch('https://deep-index.moralis.io/api/v2/nft/0xea6cca8A0A7A9054e7695f6773476E5FAd43805b/sync?chain=eth', {
+            method: 'PUT',
+            headers: {
+                'accept': '*/*',
+                'X-API-Key': 'qpwwZXW45C6gUhtMs9aL47F5vWiDq10w62XxkCfMPI0nN3bxaCIsIkXjPbxnJ72q'
+            }
+        }).then((response) => {
+            console.log(response.status);
+            return response.status;
+        })
+        .then((data) => {
+            console.log(data);
+        })
+};
+const apiRequest4 = async() => {
+    await fetch('https://deep-index.moralis.io/api/v2/nft/0x73C7F078DBc1D961DF33aDa0EF9caC89c7887801/sync?chain=eth', {
+            method: 'PUT',
+            headers: {
+                'accept': '*/*',
+                'X-API-Key': 'qpwwZXW45C6gUhtMs9aL47F5vWiDq10w62XxkCfMPI0nN3bxaCIsIkXjPbxnJ72q'
+            }
+        }).then((response) => {
+            console.log(response.status);
+            return response.status;
+        })
+        .then((data) => {
+            console.log(data);
+        })
+};
+
+apiRequest1;
+apiRequest2;
+apiRequest3;
+apiRequest4;
+
+
+
+
+//======================================SOLVE NFTs====================================
 var armorNFTsContractOne;
 var armorNFTsContractTwo;
 var armorNFTsContractThree;
 var armorNFTsContractFour;
-
-var currentUserAddress = currentUser.attributes.ethAddress;
-console.log(currentUserAddress);
 
 (async() => {
     const contractOne = { address: currentUserAddress, token_address: "0xA958fd55Be008BE82595939646d37B5Ca4Fe778D" }; //KERGOM OF OLREND MACE CONTRACT 
@@ -98,13 +172,33 @@ console.log(currentUserAddress);
     armorNFTsContractFour = await Moralis.Web3API.account.getNFTsForContract(contractFour);
 })();
 
-//const abe = async function solveContract() {
-//Get the NFTs of the SC Owned by the User (PASS STRING ADDRESS IF DOESNT WORK):
-//}
-
-console.log(armorNFTsContractFour);
 
 
+
+
+
+//======================== VOID =================================
+if (armorNFTsContractThree === 'undefined') {
+    console.log(armorNFTsContractThree.result);
+}
+
+if (armorNFTsContractOne === 'undefined') {
+    console.log(armorNFTsContractOne.result[0]);
+}
+if (armorNFTsContractTwo === 'undefined') {
+    console.log(armorNFTsContractTwo.result);
+}
+
+if (armorNFTsContractFour === 'undefined') {
+    console.log(armorNFTsContractFour.result);
+}
+//===============================================================
+
+
+
+
+
+//===========================================GET RARITIES===========================================
 //Gets & Stores the rarity of the all Owned NFTs
 var rarityOwnedContractOne = [];
 var rarityOwnedContractTwo = [];
@@ -113,31 +207,37 @@ var rarityOwnedContractFour = [];
 //String Arrays rarities of all Contracts
 
 //Grabing Values from returned objects & storing them in rarity arrays
-if (armorNFTsContractOne == 'undefined') {
-    for (var i = 0; i < armorNFTsContractOne.result.length; i++) {
-        rarityOwnedContractOne[i] = armorNFTsContractOne[i].metadata.attributes[0].value; //change 0 to 2
-    }
-}
-if (armorNFTsContractTwo == 'undefined') {
-    for (var i = 0; i < armorNFTsContractTwo.result.length; i++) {
-        rarityOwnedContractTwo[i] = armorNFTsContractTwo.result[i].metadata.attributes[0].value;
-    }
-}
-if (armorNFTsContractThree == 'undefined') {
+
+if (armorNFTsContractThree !== 'undefined') {
     for (var i = 0; i < armorNFTsContractThree.result.length; i++) {
-        rarityOwnedContractThree[i] = armorNFTsContractThree.result[i].metadata.attributes[0].value;
+        var rarityOwnedContractThreeMetaData = JSON.parse(armorNFTsContractThree.result[i].metadata);
+        rarityOwnedContractThree[i] = rarityOwnedContractThreeMetaData.attributes[0].value;
+    }
+} //put in 3rd
+
+
+if (armorNFTsContractOne !== 'undefined') {
+    for (var i = 0; i < armorNFTsContractOne.result.length; i++) {
+        var rarityOwnedContractOneMetaData = JSON.parse(armorNFTsContractOne.result[i].metadata);
+        rarityOwnedContractOne[i] = rarityOwnedContractOneMetaData.attributes[0].value; //change 0 to 2
     }
 }
-if (armorNFTsContractFour == 'undefined') {
+if (armorNFTsContractTwo !== 'undefined') {
+    for (var i = 0; i < armorNFTsContractTwo.result.length; i++) {
+        var rarityOwnedContractTwoMetaData = JSON.parse(armorNFTsContractTwo.result[i].metadata);
+        rarityOwnedContractTwo[i] = rarityOwnedContractTwoMetaData.attributes[0].value;
+    }
+}
+if (armorNFTsContractFour !== 'undefined') {
     for (var i = 0; i < armorNFTsContractFour.result.length; i++) {
-        rarityOwnedContractFour[i] = armorNFTsContractFour.result[i].metadata.attributes[0].value;
+        var rarityOwnedContractFourMetaData = JSON.parse(armorNFTsContractFour.result[i].metadata);
+        rarityOwnedContractFour[i] = rarityOwnedContractFourMetaData.attributes[0].value;
     }
 }
 
-var standardOne = false;
-var specialOne = false;
-var rareOne = false;
-var legendaryOne = false;
+
+
+
 
 //========================================= REMOVE THIS IN FINAL VERSION =========================================================
 var MysteryOne = false;
@@ -191,6 +291,11 @@ console.log(MysteryFour);
 
 
 /*
+var standardOne = false;
+var specialOne = false;
+var rareOne = false;
+var legendaryOne = false;
+
 var standardTwo = false;
 var specialTwo = false;
 var rareTwo = false;
