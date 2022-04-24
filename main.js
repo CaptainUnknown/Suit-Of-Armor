@@ -1,5 +1,3 @@
-import { Moralis } from 'moralis';
-
 const serverUrl = "https://nfyhripgc6qd.usemoralis.com:2053/server";
 const appId = "slc88cWfe1h03N34F7jQ7M7I4nPS4zYxwUr76uBn";
 Moralis.start({ serverUrl, appId });
@@ -24,6 +22,9 @@ async function logOut() {
     await Moralis.User.logOut();
     console.log("logged out");
 }
+
+let currentUser = Moralis.User.current();
+console.log(currentUser.attributes.ethAddress);
 
 document.getElementById("btn-logout").onclick = logOut;
 document.getElementById("btn-login").onclick = login;
@@ -65,22 +66,20 @@ document.getElementById("nonft15").style.visibility = 'hidden';
 document.getElementById("nonft16").style.visibility = 'hidden';
 
 
-console.log(user.attributes.ethAddress);
-
 async function solveContract() {
 
     //Get the NFTs of the SC Owned by the User (PASS STRING ADDRESS IF DOESNT WORK):
-    const contractOne = { chain: "eth", address: user.get('ethAddress'), token_address: "0xA958fd55Be008BE82595939646d37B5Ca4Fe778D" }; //KERGOM OF OLREND MACE CONTRACT
-    const armorNFTsContractOne = await Moralis.Web3API.account.getNFTsForContract(contractOne);
+    var contractOne = { chain: "eth", address: currentUser.attributes.ethAddress, token_address: "0xA958fd55Be008BE82595939646d37B5Ca4Fe778D" }; //KERGOM OF OLREND MACE CONTRACT
+    var armorNFTsContractOne = await Moralis.Web3API.account.getNFTsForContract(contractOne);
 
-    const contractTwo = { chain: "eth", address: user.get('ethAddress'), token_address: "0x703895bc5c3538a0eFAE736308f76d7bEDf01AfD" }; //GAELINS SONG KOPHER BOW CONTRACT
-    const armorNFTsContractTwo = await Moralis.Web3API.account.getNFTsForContract(contractTwo);
+    var contractTwo = { chain: "eth", address: currentUser.attributes.ethAddress, token_address: "0x703895bc5c3538a0eFAE736308f76d7bEDf01AfD" }; //GAELINS SONG KOPHER BOW CONTRACT
+    var armorNFTsContractTwo = await Moralis.Web3API.account.getNFTsForContract(contractTwo);
 
-    const contractThree = { chain: "eth", address: user.get('ethAddress'), token_address: "0xea6cca8A0A7A9054e7695f6773476E5FAd43805b" }; //TORDON  OF TRIBEORN CONTRACT
-    const armorNFTsContractThree = await Moralis.Web3API.account.getNFTsForContract(contractThree);
+    var contractThree = { chain: "eth", address: currentUser.attributes.ethAddress, token_address: "0xea6cca8A0A7A9054e7695f6773476E5FAd43805b" }; //TORDON  OF TRIBEORN CONTRACT
+    var armorNFTsContractThree = await Moralis.Web3API.account.getNFTsForContract(contractThree);
 
-    const contractFour = { chain: "eth", address: user.get('ethAddress'), token_address: "0x73C7F078DBc1D961DF33aDa0EF9caC89c7887801" }; //WENOLIN OF SOMANE SWORD CONTRACT
-    const armorNFTsContractFour = await Moralis.Web3API.account.getNFTsForContract(contractFour);
+    var contractFour = { chain: "eth", address: currentUser.attributes.ethAddress, token_address: "0x73C7F078DBc1D961DF33aDa0EF9caC89c7887801" }; //WENOLIN OF SOMANE SWORD CONTRACT
+    var armorNFTsContractFour = await Moralis.Web3API.account.getNFTsForContract(contractFour);
 }
 
 //Returns an Object with an Array of Owned NFTs
