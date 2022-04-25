@@ -83,6 +83,8 @@ document.getElementById("item14").style.visibility = 'hidden';
 document.getElementById("item15").style.visibility = 'hidden';
 document.getElementById("item16").style.visibility = 'hidden';
 
+document.getElementById("btn-download").style.visibility = 'hidden';
+document.getElementById("downloadSection").style.visibility = 'hidden';
 document.getElementById("nonfts").style.visibility = 'hidden';
 
 
@@ -521,6 +523,10 @@ async function getNFTObjs() {
         standardThree == false && specialThree == false && rareThree == false && legendaryThree == false &&
         standardFour == false && specialFour == false && rareFour == false && legendaryFour == false) {
         document.getElementById("nonfts").style.visibility = 'visible';
+        let tempElement2 = document.getElementById("btn-download");
+        tempElement2.parentNode.removeChild(tempElement2);
+        let tempElement = document.getElementById("downloadSection");
+        tempElement.parentNode.removeChild(tempElement);
     }
 
 };
