@@ -1,0 +1,43 @@
+for (var i = 1; i <= 500; i++) {
+    fetch('https://deep-index.moralis.io/api/v2/nft/0xA958fd55Be008BE82595939646d37B5Ca4Fe778D/' + i + '/metadata/resync?chain=eth&flag=uri&mode=sync', {
+        headers: {
+            'accept': 'application/json',
+            'X-API-Key': 'qpwwZXW45C6gUhtMs9aL47F5vWiDq10w62XxkCfMPI0nN3bxaCIsIkXjPbxnJ72q'
+        }
+    }); //done
+    console.log('Contract 1: ' + i);
+    setTimeout(function() {}, 3000);
+}
+for (var i = 1; i <= 500; i++) {
+    fetch('https://deep-index.moralis.io/api/v2/nft/0x703895bc5c3538a0eFAE736308f76d7bEDf01AfD/' + i + '/metadata/resync?chain=eth&flag=uri&mode=sync', {
+        headers: {
+            'accept': 'application/json',
+            'X-API-Key': 'qpwwZXW45C6gUhtMs9aL47F5vWiDq10w62XxkCfMPI0nN3bxaCIsIkXjPbxnJ72q'
+        }
+    }); //done
+    console.log('Contract 2: ' + i);
+    setTimeout(function() {}, 3000);
+}
+
+for (var i = 1; i <= 500; i++) {
+    fetch('https://deep-index.moralis.io/api/v2/nft/0xea6cca8A0A7A9054e7695f6773476E5FAd43805b/' + i + '/metadata/resync?chain=eth&flag=uri&mode=sync', {
+        headers: {
+            'accept': 'application/json',
+            'X-API-Key': 'qpwwZXW45C6gUhtMs9aL47F5vWiDq10w62XxkCfMPI0nN3bxaCIsIkXjPbxnJ72q'
+        }
+    }); //done
+    console.log('Contract 3: ' + i);
+    setTimeout(function() {}, 3000);
+}
+
+for (var i = 1; i <= 500; i++) {
+    fetch('https://deep-index.moralis.io/api/v2/nft/0x73C7F078DBc1D961DF33aDa0EF9caC89c7887801/' + i + '/metadata/resync?chain=eth&flag=uri&mode=sync', {
+        headers: {
+            'accept': 'application/json',
+            'X-API-Key': 'qpwwZXW45C6gUhtMs9aL47F5vWiDq10w62XxkCfMPI0nN3bxaCIsIkXjPbxnJ72q'
+        }
+    }); //done
+
+    console.log('Contract 4: ' + i);
+    setTimeout(function() {}, 3000);
+}
