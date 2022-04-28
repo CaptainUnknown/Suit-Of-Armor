@@ -49,23 +49,6 @@ document.getElementById("btn-login").addEventListener('click', () => {
 
 
 //==================INIT ELEMENTS===============================
-document.getElementById("meta1").style.visibility = 'hidden';
-document.getElementById("meta2").style.visibility = 'hidden';
-document.getElementById("meta3").style.visibility = 'hidden';
-document.getElementById("meta4").style.visibility = 'hidden';
-document.getElementById("meta5").style.visibility = 'hidden';
-document.getElementById("meta6").style.visibility = 'hidden';
-document.getElementById("meta7").style.visibility = 'hidden';
-document.getElementById("meta8").style.visibility = 'hidden';
-document.getElementById("meta9").style.visibility = 'hidden';
-document.getElementById("meta10").style.visibility = 'hidden';
-document.getElementById("meta11").style.visibility = 'hidden';
-document.getElementById("meta12").style.visibility = 'hidden';
-document.getElementById("meta13").style.visibility = 'hidden';
-document.getElementById("meta14").style.visibility = 'hidden';
-document.getElementById("meta15").style.visibility = 'hidden';
-document.getElementById("meta16").style.visibility = 'hidden';
-
 document.getElementById("item1").style.visibility = 'hidden';
 document.getElementById("item2").style.visibility = 'hidden';
 document.getElementById("item3").style.visibility = 'hidden';
@@ -83,8 +66,6 @@ document.getElementById("item14").style.visibility = 'hidden';
 document.getElementById("item15").style.visibility = 'hidden';
 document.getElementById("item16").style.visibility = 'hidden';
 
-document.getElementById("btn-download").style.visibility = 'hidden';
-document.getElementById("downloadSection").style.visibility = 'hidden';
 document.getElementById("nonfts").style.visibility = 'hidden';
 
 
@@ -343,23 +324,31 @@ async function getNFTObjs() {
         }
     }
 
+    /*
+            for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
+            let tokenID = armorNFTsContractOneVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text1").parentNode.appendChild(elm); 
+    */
 
 
     if (standardOne) {
         document.getElementById("meta1").style.visibility = 'visible';
         document.getElementById("item1").style.visibility = 'visible';
-
         for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
-            if (rarityOwnedContractOne[i] == "Standard") {
-                let tokenID = armorNFTsContractOneVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text1").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractOneVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text1").parentNode.appendChild(elm);
         }
     }
     if (specialOne) {
@@ -367,48 +356,42 @@ async function getNFTObjs() {
         document.getElementById("item2").style.visibility = 'visible';
 
         for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
-            if (rarityOwnedContractOne[i] == "Special") {
-                let tokenID = armorNFTsContractOneVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text2").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractOneVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text2").parentNode.appendChild(elm);
         }
     }
     if (rareOne) {
         document.getElementById("meta3").style.visibility = "visible";
         document.getElementById("item3").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
-            if (rarityOwnedContractOne[i] == "Rare") {
-                let tokenID = armorNFTsContractOneVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text3").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractOneVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text3").parentNode.appendChild(elm);
         }
     }
     if (legendaryOne) {
         document.getElementById("meta4").style.visibility = "visible";
         document.getElementById("item4").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
-            if (rarityOwnedContractOne[i] == "Legendary") {
-                let tokenID = armorNFTsContractOneVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text4").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractOneVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text4").parentNode.appendChild(elm);
         }
     }
 
@@ -417,64 +400,56 @@ async function getNFTObjs() {
         document.getElementById("meta5").style.visibility = "visible";
         document.getElementById("item5").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractTwoVar.result.length; i++) {
-            if (rarityOwnedContractTwo[i] == "Standard") {
-                let tokenID = armorNFTsContractTwoVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text5").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractTwoVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text5").parentNode.appendChild(elm);
         }
     }
     if (specialTwo) {
         document.getElementById("meta6").style.visibility = "visible";
         document.getElementById("item6").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractTwoVar.result.length; i++) {
-            if (rarityOwnedContractTwo[i] == "Special") {
-                let tokenID = armorNFTsContractTwoVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text6").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractTwoVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text6").parentNode.appendChild(elm);
         }
     }
     if (rareTwo) {
         document.getElementById("meta7").style.visibility = "visible";
         document.getElementById("item7").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractTwoVar.result.length; i++) {
-            if (rarityOwnedContractTwo[i] == "Rare") {
-                let tokenID = armorNFTsContractTwoVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text7").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractTwoVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text7").parentNode.appendChild(elm);
         }
     }
     if (legendaryTwo) {
         document.getElementById("meta8").style.visibility = "visible";
         document.getElementById("item8").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractTwoVar.result.length; i++) {
-            if (rarityOwnedContractTwo[i] == "Legendary") {
-                let tokenID = armorNFTsContractTwoVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text8").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractTwoVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text8").parentNode.appendChild(elm);
         }
     }
 
@@ -483,64 +458,56 @@ async function getNFTObjs() {
         document.getElementById("meta9").style.visibility = "visible";
         document.getElementById("item9").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractThreeVar.result.length; i++) {
-            if (rarityOwnedContractThree[i] == "Standard") {
-                let tokenID = armorNFTsContractThreeVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text9").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractThreeVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text9").parentNode.appendChild(elm);
         }
     }
     if (specialThree) {
         document.getElementById("meta10").style.visibility = "visible";
         document.getElementById("item10").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractThreeVar.result.length; i++) {
-            if (rarityOwnedContractThree[i] == "Special") {
-                let tokenID = armorNFTsContractThreeVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text10").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractThreeVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text10").parentNode.appendChild(elm);
         }
     }
     if (rareThree) {
         document.getElementById("meta11").style.visibility = "visible";
         document.getElementById("item11").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractThreeVar.result.length; i++) {
-            if (rarityOwnedContractThree[i] == "Rare") {
-                let tokenID = armorNFTsContractThreeVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text11").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractThreeVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text11").parentNode.appendChild(elm);
         }
     }
     if (legendaryThree) {
         document.getElementById("meta12").style.visibility = "visible";
         document.getElementById("item12").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractThreeVar.result.length; i++) {
-            if (rarityOwnedContractThree[i] == "Legendary") {
-                let tokenID = armorNFTsContractThreeVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text12").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractThreeVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text12").parentNode.appendChild(elm);
         }
     }
 
@@ -549,64 +516,56 @@ async function getNFTObjs() {
         document.getElementById("meta13").style.visibility = "visible";
         document.getElementById("item13").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractFourVar.result.length; i++) {
-            if (rarityOwnedContractFour[i] == "Standard") {
-                let tokenID = armorNFTsContractFourVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text13").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractFourVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text13").parentNode.appendChild(elm);
         }
     }
     if (specialFour) {
         document.getElementById("meta14").style.visibility = "visible";
         document.getElementById("item14").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractFourVar.result.length; i++) {
-            if (rarityOwnedContractFour[i] == "Special") {
-                let tokenID = armorNFTsContractFourVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text14").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractFourVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text14").parentNode.appendChild(elm);
         }
     }
     if (rareFour) {
         document.getElementById("meta15").style.visibility = "visible";
         document.getElementById("item15").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractFourVar.result.length; i++) {
-            if (rarityOwnedContractFour[i] == "Rare") {
-                let tokenID = armorNFTsContractFourVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text15").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractFourVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text15").parentNode.appendChild(elm);
         }
     }
     if (legendaryFour) {
         document.getElementById("meta16").style.visibility = "visible";
         document.getElementById("item16").style.visibility = 'visible';
         for (var i = 0; i < armorNFTsContractFourVar.result.length; i++) {
-            if (rarityOwnedContractFour[i] == "Legendary") {
-                let tokenID = armorNFTsContractFourVar.result[i].token_id;
-                let elm = document.createElement("elm");
-                elm.innerText = "Token ID: " + tokenID;
-                elm.style.color = '#000000';
-                elm.style.fontWeight = "800";
-                elm.style.textAlign = "center"
-                elm.style.fontFamily = "Oswald";
-                document.getElementById("text16").parentNode.appendChild(elm);
-            }
+            let tokenID = armorNFTsContractFourVar.result[i].token_id;
+            let elm = document.createElement("elm");
+            elm.innerText = "Token ID: " + tokenID;
+            elm.style.color = '#000000';
+            elm.style.fontWeight = "800";
+            elm.style.textAlign = "center"
+            elm.style.fontFamily = "Oswald";
+            document.getElementById("text16").parentNode.appendChild(elm);
         }
     }
 
@@ -735,8 +694,7 @@ async function getNFTObjs() {
         standardThree || specialThree || rareThree || legendaryThree ||
         standardFour || specialFour || rareFour || legendaryFour) {
         let tempElement = document.getElementById("nonfts");
-        document.getElementById("downloadSection").style.visibility = 'visible';
-        tempElement.parentNode.removeChild(tempElement);
+
     }
 
     if (standardOne == false && specialOne == false && rareOne == false && legendaryOne == false &&
@@ -744,10 +702,6 @@ async function getNFTObjs() {
         standardThree == false && specialThree == false && rareThree == false && legendaryThree == false &&
         standardFour == false && specialFour == false && rareFour == false && legendaryFour == false) {
         document.getElementById("nonfts").style.visibility = 'visible';
-        let tempElement2 = document.getElementById("btn-download");
-        tempElement2.parentNode.removeChild(tempElement2);
-        let tempElement = document.getElementById("downloadSection");
-        tempElement.parentNode.removeChild(tempElement);
     }
 
 };
