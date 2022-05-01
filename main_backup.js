@@ -324,18 +324,6 @@ async function getNFTObjs() {
         }
     }
 
-    /*
-            for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
-            let tokenID = armorNFTsContractOneVar.result[i].token_id;
-            let elm = document.createElement("elm");
-            elm.innerText = "Token ID: " + tokenID;
-            elm.style.color = '#000000';
-            elm.style.fontWeight = "800";
-            elm.style.textAlign = "center"
-            elm.style.fontFamily = "Oswald";
-            document.getElementById("text1").parentNode.appendChild(elm); 
-    */
-
 
     if (standardOne) {
         document.getElementById("meta1").style.visibility = 'visible';
