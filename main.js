@@ -1,6 +1,6 @@
 //==================AUTHENTICATION====================
-const serverUrl = "https://6vtxdhaw2qr6.usemoralis.com:2053/server";
-const appId = "HQsrv5Vqi2ouBkZ5UhgWZyjSi3U7xiowRY6eN7TM";
+const serverUrl = "https://8q6cpdoqxqro.usemoralis.com:2053/server";
+const appId = "eSVr2okUb8q89yg2xttR3TQymdyqRlNkGLPk0nli";
 Moralis.start({ serverUrl, appId });
 
 async function login() {
@@ -49,23 +49,6 @@ document.getElementById("btn-login").addEventListener('click', () => {
 
 
 //==================INIT ELEMENTS===============================
-document.getElementById("meta1").style.visibility = 'hidden';
-document.getElementById("meta2").style.visibility = 'hidden';
-document.getElementById("meta3").style.visibility = 'hidden';
-document.getElementById("meta4").style.visibility = 'hidden';
-document.getElementById("meta5").style.visibility = 'hidden';
-document.getElementById("meta6").style.visibility = 'hidden';
-document.getElementById("meta7").style.visibility = 'hidden';
-document.getElementById("meta8").style.visibility = 'hidden';
-document.getElementById("meta9").style.visibility = 'hidden';
-document.getElementById("meta10").style.visibility = 'hidden';
-document.getElementById("meta11").style.visibility = 'hidden';
-document.getElementById("meta12").style.visibility = 'hidden';
-document.getElementById("meta13").style.visibility = 'hidden';
-document.getElementById("meta14").style.visibility = 'hidden';
-document.getElementById("meta15").style.visibility = 'hidden';
-document.getElementById("meta16").style.visibility = 'hidden';
-
 document.getElementById("item1").style.visibility = 'hidden';
 document.getElementById("item2").style.visibility = 'hidden';
 document.getElementById("item3").style.visibility = 'hidden';
@@ -83,8 +66,6 @@ document.getElementById("item14").style.visibility = 'hidden';
 document.getElementById("item15").style.visibility = 'hidden';
 document.getElementById("item16").style.visibility = 'hidden';
 
-document.getElementById("btn-download").style.visibility = 'hidden';
-document.getElementById("downloadSection").style.visibility = 'hidden';
 document.getElementById("nonfts").style.visibility = 'hidden';
 
 
@@ -156,6 +137,7 @@ apiRequest3;
 apiRequest4;
 
 
+
 //======================================SOLVE NFTs====================================
 var armorNFTsContractOneVar = {};
 var armorNFTsContractTwoVar = {};
@@ -163,6 +145,15 @@ var armorNFTsContractThreeVar = {};
 var armorNFTsContractFourVar = {};
 
 async function getNFTObjs() {
+    //debug--------->
+    const debugOptions = { chain: "eth", address: "0xa8878db227D4f67427E7611dE026F5078Af4194b", token_address: "0x73C7F078DBc1D961DF33aDa0EF9caC89c7887801" };
+    const debugNFTs = await Moralis.Web3API.account.getNFTsForContract(debugOptions);
+    console.log(debugNFTs);
+
+
+
+
+
     const contractOne = { address: currentUserAddress, token_address: "0xA958fd55Be008BE82595939646d37B5Ca4Fe778D" }; //KERGOM OF OLREND MACE CONTRACT 
     const armorNFTsContractOne = await Moralis.Web3API.account.getNFTsForContract(contractOne);
     //console.log(armorNFTsContractOne);
@@ -209,7 +200,7 @@ async function getNFTObjs() {
         for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
             //var rarityOwnedContractOneMetaData = JSON.parse(armorNFTsContractOneVar.result[i].metadata);
             var oneTempMeta = JSON.parse(armorNFTsContractOneVar.result[i].metadata);
-            rarityOwnedContractOne[i] = oneTempMeta.attributes[2].value; //change 0 to 2
+            rarityOwnedContractOne[i] = oneTempMeta.attributes[2].value;
         }
     }
     if (armorNFTsContractTwoVar.result.length != 0) {
@@ -255,23 +246,18 @@ async function getNFTObjs() {
     var legendaryFour = false;
 
 
-    //Giving the User Download Links for their respective rarities
     for (var i = 0; i < rarityOwnedContractOne.length; i++) {
         if (rarityOwnedContractOne[i] == "Standard") {
             standardOne = true;
-            // https://drive.google.com/drive/folders/1_Jvj9c-tFsXgDbYu9Ne-35buE1-VPb63?usp=sharing
         }
         if (rarityOwnedContractOne[i] == "Special") {
             specialOne = true;
-            //https://drive.google.com/drive/folders/1vXOyL445IKlypbyi7l9GqtSZleZM2DGJ?usp=sharing
         }
         if (rarityOwnedContractOne[i] == "Rare") {
             rareOne = true;
-            //https://drive.google.com/drive/folders/1YpCoqDZcT-rYfUM5boVafPaqUUaHXfWF?usp=sharing
         }
         if (rarityOwnedContractOne[i] == "Legendary") {
             legendaryOne = true;
-            //https://drive.google.com/drive/folders/1UhC1H0VrYR_d3zdppXUnU1ZXM6YPDhVv?usp=sharing
         }
     }
 
@@ -279,115 +265,310 @@ async function getNFTObjs() {
     for (var i = 0; i < rarityOwnedContractTwo.length; i++) {
         if (rarityOwnedContractTwo[i] == "Standard") {
             standardTwo = true;
-            // https://drive.google.com/drive/folders/1oMsQRJ57382IiBfbXE358fESWWJx-S0-?usp=sharing
         }
         if (rarityOwnedContractTwo[i] == "Special") {
             specialTwo = true;
-            // https://drive.google.com/drive/folders/1FvKuGgcjUNEusGmjJUslmvDgq84l6wsx?usp=sharing
         }
         if (rarityOwnedContractTwo[i] == "Rare") {
             rareTwo = true;
-            // https://drive.google.com/drive/folders/1_nz9fdclSuS5tQdOhYx4w1Qv7Jm4w8qM?usp=sharing
         }
         if (rarityOwnedContractTwo[i] == "Legendary") {
             legendaryTwo = true;
-            // https://drive.google.com/drive/folders/1vVgsJjUO55Gs1AGGTrRVFa7gS3ZdN-Wv?usp=sharing
         }
     }
 
     for (var i = 0; i < rarityOwnedContractThree.length; i++) {
         if (rarityOwnedContractThree[i] == "Standard") {
             standardThree = true;
-            // https://drive.google.com/drive/folders/1Sckw2PmHvRaFUOgxcaGmyllteBmBw1bB?usp=sharing
         }
         if (rarityOwnedContractThree[i] == "Special") {
             specialThree = true;
-            // https://drive.google.com/drive/folders/1EFn2cpQOLZKS4sAelDIppu9NrlkUr5JB?usp=sharing
         }
         if (rarityOwnedContractThree[i] == "Rare") {
             rareThree = true;
-            // https://drive.google.com/drive/folders/1iucwEJaESbSm7n9oQQnLLWj0_72O5Dkd?usp=sharing
         }
         if (rarityOwnedContractThree[i] == "Legendary") {
             legendaryThree = true;
-            // https://drive.google.com/drive/folders/1jvQw-e5HO_VlcvpttSHlHQJMU5GtN7Ss?usp=sharing
         }
     }
 
     for (var i = 0; i < rarityOwnedContractFour.length; i++) {
         if (rarityOwnedContractFour[i] == "Standard") {
             standardFour = true;
-            // https://drive.google.com/drive/folders/1gHDHFg_j-pfoZd0kwCUYFVXHjNcq1g5c?usp=sharing
         }
         if (rarityOwnedContractFour[i] == "Special") {
             specialFour = true;
-            // https://drive.google.com/drive/folders/1tUI-H7W0E0JvkASyW5wmtAWrDC-0HGp5?usp=sharing
         }
         if (rarityOwnedContractFour[i] == "Rare") {
             rareFour = true;
-            // https://drive.google.com/drive/folders/1lmnN-5eqY4LcG5ZVSX3fJ2bUZcT3m4a0?usp=sharing
         }
         if (rarityOwnedContractFour[i] == "Legendary") {
             legendaryFour = true;
-            // https://drive.google.com/drive/folders/1h2pzBL7jvEJ6Nyx-UegiD3ON0YhaZZYr?usp=sharing
         }
     }
-
 
 
     if (standardOne) {
         document.getElementById("meta1").style.visibility = 'visible';
+        document.getElementById("item1").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
+            tokenID.push(armorNFTsContractOneVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text1").parentNode.appendChild(elm);
     }
     if (specialOne) {
         document.getElementById("meta2").style.visibility = "visible";
+        document.getElementById("item2").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
+            tokenID.push(armorNFTsContractOneVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text2").parentNode.appendChild(elm);
     }
     if (rareOne) {
         document.getElementById("meta3").style.visibility = "visible";
+        document.getElementById("item3").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
+            tokenID.push(armorNFTsContractOneVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text3").parentNode.appendChild(elm);
     }
     if (legendaryOne) {
         document.getElementById("meta4").style.visibility = "visible";
+        document.getElementById("item4").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractOneVar.result.length; i++) {
+            tokenID.push(armorNFTsContractOneVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text4").parentNode.appendChild(elm);
     }
 
 
     if (standardTwo) {
         document.getElementById("meta5").style.visibility = "visible";
+        document.getElementById("item5").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractTwoVar.result.length; i++) {
+            tokenID.push(armorNFTsContractTwoVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text5").parentNode.appendChild(elm);
     }
     if (specialTwo) {
         document.getElementById("meta6").style.visibility = "visible";
+        document.getElementById("item6").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractTwoVar.result.length; i++) {
+            tokenID.push(armorNFTsContractTwoVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text6").parentNode.appendChild(elm);
     }
     if (rareTwo) {
         document.getElementById("meta7").style.visibility = "visible";
+        document.getElementById("item7").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractTwoVar.result.length; i++) {
+            tokenID.push(armorNFTsContractTwoVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text7").parentNode.appendChild(elm);
     }
     if (legendaryTwo) {
         document.getElementById("meta8").style.visibility = "visible";
+        document.getElementById("item8").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractTwoVar.result.length; i++) {
+            tokenID.push(armorNFTsContractTwoVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text8").parentNode.appendChild(elm);
     }
 
 
     if (standardThree) {
         document.getElementById("meta9").style.visibility = "visible";
+        document.getElementById("item9").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractThreeVar.result.length; i++) {
+            tokenID.push(armorNFTsContractThreeVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text9").parentNode.appendChild(elm);
     }
     if (specialThree) {
         document.getElementById("meta10").style.visibility = "visible";
+        document.getElementById("item10").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractThreeVar.result.length; i++) {
+            tokenID.push(armorNFTsContractThreeVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text10").parentNode.appendChild(elm);
     }
     if (rareThree) {
         document.getElementById("meta11").style.visibility = "visible";
+        document.getElementById("item11").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractThreeVar.result.length; i++) {
+            tokenID.push(armorNFTsContractThreeVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text11").parentNode.appendChild(elm);
     }
     if (legendaryThree) {
         document.getElementById("meta12").style.visibility = "visible";
+        document.getElementById("item12").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractThreeVar.result.length; i++) {
+            tokenID.push(armorNFTsContractThreeVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text12").parentNode.appendChild(elm);
     }
 
 
     if (standardFour) {
         document.getElementById("meta13").style.visibility = "visible";
+        document.getElementById("item13").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractFourVar.result.length; i++) {
+            tokenID.push(armorNFTsContractFourVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text13").parentNode.appendChild(elm);
     }
     if (specialFour) {
         document.getElementById("meta14").style.visibility = "visible";
+        document.getElementById("item14").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractFourVar.result.length; i++) {
+            tokenID.push(armorNFTsContractFourVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text14").parentNode.appendChild(elm);
     }
     if (rareFour) {
         document.getElementById("meta15").style.visibility = "visible";
+        document.getElementById("item15").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractFourVar.result.length; i++) {
+            tokenID.push(armorNFTsContractFourVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text15").parentNode.appendChild(elm);
     }
     if (legendaryFour) {
         document.getElementById("meta16").style.visibility = "visible";
+        document.getElementById("item16").style.visibility = 'visible';
+        let tokenID = [];
+        for (var i = 0; i < armorNFTsContractFourVar.result.length; i++) {
+            tokenID.push(armorNFTsContractFourVar.result[i].token_id);
+        }
+        const allIDs = tokenID.toString();
+        let elm = document.createElement("elm");
+        elm.innerText = "Token ID: " + allIDs;
+        elm.style.color = '#000000';
+        elm.style.fontWeight = "800";
+        elm.style.textAlign = "center"
+        elm.style.fontFamily = "Oswald";
+        document.getElementById("text16").parentNode.appendChild(elm);
     }
 
 
@@ -515,7 +696,7 @@ async function getNFTObjs() {
         standardThree || specialThree || rareThree || legendaryThree ||
         standardFour || specialFour || rareFour || legendaryFour) {
         let tempElement = document.getElementById("nonfts");
-        tempElement.parentNode.removeChild(tempElement);
+
     }
 
     if (standardOne == false && specialOne == false && rareOne == false && legendaryOne == false &&
@@ -523,10 +704,6 @@ async function getNFTObjs() {
         standardThree == false && specialThree == false && rareThree == false && legendaryThree == false &&
         standardFour == false && specialFour == false && rareFour == false && legendaryFour == false) {
         document.getElementById("nonfts").style.visibility = 'visible';
-        let tempElement2 = document.getElementById("btn-download");
-        tempElement2.parentNode.removeChild(tempElement2);
-        let tempElement = document.getElementById("downloadSection");
-        tempElement.parentNode.removeChild(tempElement);
     }
 
 };
