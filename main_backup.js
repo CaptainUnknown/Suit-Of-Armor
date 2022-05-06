@@ -246,23 +246,18 @@ async function getNFTObjs() {
     var legendaryFour = false;
 
 
-    //Giving the User Download Links for their respective rarities
     for (var i = 0; i < rarityOwnedContractOne.length; i++) {
         if (rarityOwnedContractOne[i] == "Standard") {
             standardOne = true;
-            // https://drive.google.com/drive/folders/1_Jvj9c-tFsXgDbYu9Ne-35buE1-VPb63?usp=sharing
         }
         if (rarityOwnedContractOne[i] == "Special") {
             specialOne = true;
-            //https://drive.google.com/drive/folders/1vXOyL445IKlypbyi7l9GqtSZleZM2DGJ?usp=sharing
         }
         if (rarityOwnedContractOne[i] == "Rare") {
             rareOne = true;
-            //https://drive.google.com/drive/folders/1YpCoqDZcT-rYfUM5boVafPaqUUaHXfWF?usp=sharing
         }
         if (rarityOwnedContractOne[i] == "Legendary") {
             legendaryOne = true;
-            //https://drive.google.com/drive/folders/1UhC1H0VrYR_d3zdppXUnU1ZXM6YPDhVv?usp=sharing
         }
     }
 
@@ -270,57 +265,45 @@ async function getNFTObjs() {
     for (var i = 0; i < rarityOwnedContractTwo.length; i++) {
         if (rarityOwnedContractTwo[i] == "Standard") {
             standardTwo = true;
-            // https://drive.google.com/drive/folders/1oMsQRJ57382IiBfbXE358fESWWJx-S0-?usp=sharing
         }
         if (rarityOwnedContractTwo[i] == "Special") {
             specialTwo = true;
-            // https://drive.google.com/drive/folders/1FvKuGgcjUNEusGmjJUslmvDgq84l6wsx?usp=sharing
         }
         if (rarityOwnedContractTwo[i] == "Rare") {
             rareTwo = true;
-            // https://drive.google.com/drive/folders/1_nz9fdclSuS5tQdOhYx4w1Qv7Jm4w8qM?usp=sharing
         }
         if (rarityOwnedContractTwo[i] == "Legendary") {
             legendaryTwo = true;
-            // https://drive.google.com/drive/folders/1vVgsJjUO55Gs1AGGTrRVFa7gS3ZdN-Wv?usp=sharing
         }
     }
 
     for (var i = 0; i < rarityOwnedContractThree.length; i++) {
         if (rarityOwnedContractThree[i] == "Standard") {
             standardThree = true;
-            // https://drive.google.com/drive/folders/1Sckw2PmHvRaFUOgxcaGmyllteBmBw1bB?usp=sharing
         }
         if (rarityOwnedContractThree[i] == "Special") {
             specialThree = true;
-            // https://drive.google.com/drive/folders/1EFn2cpQOLZKS4sAelDIppu9NrlkUr5JB?usp=sharing
         }
         if (rarityOwnedContractThree[i] == "Rare") {
             rareThree = true;
-            // https://drive.google.com/drive/folders/1iucwEJaESbSm7n9oQQnLLWj0_72O5Dkd?usp=sharing
         }
         if (rarityOwnedContractThree[i] == "Legendary") {
             legendaryThree = true;
-            // https://drive.google.com/drive/folders/1jvQw-e5HO_VlcvpttSHlHQJMU5GtN7Ss?usp=sharing
         }
     }
 
     for (var i = 0; i < rarityOwnedContractFour.length; i++) {
         if (rarityOwnedContractFour[i] == "Standard") {
             standardFour = true;
-            // https://drive.google.com/drive/folders/1gHDHFg_j-pfoZd0kwCUYFVXHjNcq1g5c?usp=sharing
         }
         if (rarityOwnedContractFour[i] == "Special") {
             specialFour = true;
-            // https://drive.google.com/drive/folders/1tUI-H7W0E0JvkASyW5wmtAWrDC-0HGp5?usp=sharing
         }
         if (rarityOwnedContractFour[i] == "Rare") {
             rareFour = true;
-            // https://drive.google.com/drive/folders/1lmnN-5eqY4LcG5ZVSX3fJ2bUZcT3m4a0?usp=sharing
         }
         if (rarityOwnedContractFour[i] == "Legendary") {
             legendaryFour = true;
-            // https://drive.google.com/drive/folders/1h2pzBL7jvEJ6Nyx-UegiD3ON0YhaZZYr?usp=sharing
         }
     }
 
