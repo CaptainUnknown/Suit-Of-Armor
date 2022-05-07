@@ -696,7 +696,7 @@ async function getNFTObjs() {
         standardThree || specialThree || rareThree || legendaryThree ||
         standardFour || specialFour || rareFour || legendaryFour) {
         let tempElement = document.getElementById("nonfts");
-
+        tempElement.parentNode.removeChild(tempElement);
     }
 
     if (standardOne == false && specialOne == false && rareOne == false && legendaryOne == false &&
